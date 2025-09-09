@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Test Page</title>
+    <meta charset="UTF-8" />
+    <title>Salesforce LWC Demo</title>
+
+    <!-- Load Lightning Out from Salesforce -->
+    <script src="https://orgfarm-22379d6043-dev-ed.develop.lightning.force.com//lightning/lightning.out.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $Lightning.use("c:agentLwcApp", function() {
+                $Lightning.createComponent(
+                    "c:chatWithAgentforce",
+                  { recordId: "a0HgL00000t1pSDUAY" },
+                    "lightning",
+                    function(component) {
+                        console.log("Chat component loaded.");
+                    }
+                );
+            }, "https://yourorg.lightning.force.com");
+        });
+    </script>
 </head>
 <body>
-  <h1>Hello from GitHub Pages!</h1>
+    <h1>Chat with Agentforce Demo</h1>
+    <div id="lightning"></div>
 </body>
 </html>
